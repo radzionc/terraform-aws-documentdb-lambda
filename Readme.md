@@ -1,4 +1,4 @@
-# terraform-aws-documentdb-lambda
+# [terraform-aws-documentdb-lambda](https://medium.com/p/34a5d1061c15)
 
 >
 ## create resources on AWS:
@@ -24,23 +24,25 @@ $ terraform apply
  - aws_instance_public_dns
  - url
  - docdb_endpoint
+ - docdb_username
  - bucket
  - bucket_key
  - name
 
 ## Connect to Amazon DocumentDB
 ```bash
-$ ssh -i <TF_VAR_name> ubuntu@<aws_instance_public_dns>
+$ ssh -i tf-<var.name>-ec2 ubuntu<aws_instance_public_dns>
 $ mongo \
   --host <docdb_endpoint> \
-  --username <TF_VAR_name>_admin \
-  --password <TF_VAR_docdb_password>
+  --username <docdb_username> \
+  --password <var.docdb_password>
 ```
 
 ## update function code:
 ```bash
+$ export AWS_DEFAULT_REGION=<var.region>
 $ aws s3 cp lambda.zip s3://<bucket>/<bucket_key>
-$ aws lambda update-function-code --function-name <name> --s3-bucket <bucket> --s3-key <bucket_key>
+$ aws lambda update-function-code --function-name tf-<var.name> --s3-bucket <bucket> --s3-key <bucket_key>
 ```
 
 ## [Story on Medium](https://medium.com/p/34a5d1061c15)
