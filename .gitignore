@@ -1,0 +1,8 @@
+.terraform/
+*.backup
+*.tfstate
+.vs/
+
+set_env_vars.sh
+lambda.zip
+tf-geek-api-ec2
