@@ -25,7 +25,7 @@ resource "aws_lambda_function" "service" {
   role        = "${aws_iam_role.service.arn}"
 
   vpc_config {
-    subnet_ids = ["${module.vpc.public_subnets}"]
+    subnet_ids = ["${module.vpc.private_subnets}"]
     security_group_ids = ["${aws_security_group.service.id}"]
   }
 
