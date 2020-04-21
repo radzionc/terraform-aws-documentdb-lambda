@@ -30,7 +30,7 @@ resource "aws_lambda_function" "service" {
   }
 
   environment {
-    variables {
+    variables = {
       DB_CONNECTION_STRING = "mongodb://${aws_docdb_cluster.service.master_username}:${aws_docdb_cluster.service.master_password}@${aws_docdb_cluster.service.endpoint}:${aws_docdb_cluster.service.port}"
     }
   }
