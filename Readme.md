@@ -45,7 +45,7 @@ $ aws s3 cp lambda.zip s3://<bucket>/<bucket_key>
 $ aws lambda update-function-code --function-name tf-<var.name> --s3-bucket <bucket> --s3-key <bucket_key>
 ```
 
-## [Story on Medium](https://medium.com/p/34a5d1061c15)
+## [Blog post](https://geekrodion.com/blog/documentdb-terraform)
 
 ## License
 
